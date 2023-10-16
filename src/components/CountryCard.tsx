@@ -6,7 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+//icon
 import { ArrowUpRight } from "lucide-react";
+// helper
+import { formatNumberWithCommas } from "@/helper/math";
 
 interface CountryCardType {
   name: string;
@@ -50,8 +53,10 @@ export default function CountryCard({
           </CardTitle>
           <div className="flex flex-col gap-1 ">
             <p>
-              Population:
-              <span className="text-primary/70">{population}</span>
+              Population:{" "}
+              <span className="tracking-wide text-primary/70">
+                {formatNumberWithCommas(population)}
+              </span>
             </p>
             <p>
               Region: <span className="text-primary/70">{region}</span>
