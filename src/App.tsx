@@ -10,14 +10,14 @@ import Home from './pages/Home';
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <HashRouter>
+            <HashRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
           </Route>
         </Routes>
       </HashRouter>
-    </ThemeProvider>
+       </ThemeProvider>
   );
 }
 
