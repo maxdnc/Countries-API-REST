@@ -8,11 +8,12 @@ import {
 } from "./ui/card";
 import { ArrowUpRight } from "lucide-react";
 
-interface CountriesCardType {
+interface CountryCardType {
   name: string;
-  population: string;
+  population: number;
   region: string;
-  capital: string;
+  capital: string[];
+  flag: string;
 }
 
 export default function CountryCard({
@@ -20,15 +21,16 @@ export default function CountryCard({
   population,
   region,
   capital,
-}: CountriesCardType) {
+  flag,
+}: CountryCardType) {
   return (
     <>
-      <Card className="group relative max-w-xs shadow-lg transition hover:scale-[1.025]">
+      <Card className="group relative max-w-xs overflow-hidden shadow-lg transition-transform hover:scale-[1.025]">
         <CardHeader>
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png"
+            src={flag}
             alt=""
-            className="aspect-[133/80] max-h-40 object-fill"
+            className="aspect-[133/80]  object-cover"
             loading="lazy"
             decoding="async"
           />
@@ -37,7 +39,7 @@ export default function CountryCard({
         <CardContent className="py-4">
           <CardTitle className="py-4">
             <Link to="/country">
-              <span className=" absolute inset-0"></span>
+              <span className="absolute inset-0"></span>
               <div className="flex items-center gap-4">
                 <span>{name}</span>
                 <span>
@@ -46,15 +48,16 @@ export default function CountryCard({
               </div>
             </Link>
           </CardTitle>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 ">
             <p>
-              Population: <span>{population}</span>{" "}
+              Population:
+              <span className="text-primary/70">{population}</span>
             </p>
             <p>
-              Region: <span>{region}</span>{" "}
+              Region: <span className="text-primary/70">{region}</span>
             </p>
             <p>
-              Capital:<span>{capital}</span>{" "}
+              Capital: <span className="text-primary/70">{capital}</span>
             </p>
           </div>
         </CardContent>
