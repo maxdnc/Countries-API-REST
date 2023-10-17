@@ -3,25 +3,18 @@ import CountryCard from "./CountryCard";
 import SkeletonCard from "./SkeletonCard";
 import PaginationMenu from "./PaginationMenu";
 // type
-import { CountryResponseType } from "@/types";
-// api
-import { useQuery } from "@tanstack/react-query";
-import { getAllCountries } from "@/api/countries";
+import type { CountryResponseType, CountriesListProps } from "@/types";
+// hook
 import { usePagination } from "@/hooks/usePagination";
 
-export default function CountriesList() {
-  const { data: countries, isLoading } = useQuery({
-    queryKey: ["countries"],
-    queryFn: () => getAllCountries(),
-  });
+export default function CountriesList({ data, isLoading }: CountriesListProps) {
   const ItemsLimiteByPage = 12;
-
   const {
     currentPage,
     dataCurrentPage: countriesCurrentPage,
     totalPages,
     handlePageChange,
-  } = usePagination(countries, ItemsLimiteByPage);
+  } = usePagination(data, ItemsLimiteByPage);
 
   if (isLoading) {
     return (
@@ -55,7 +48,7 @@ export default function CountriesList() {
         ))}
       </ul>
 
-      {countries !== undefined && countries.length > ItemsLimiteByPage && (
+      {data !== undefined && data.length > ItemsLimiteByPage && (
         <PaginationMenu
           handlePageChange={handlePageChange}
           currentPage={currentPage}

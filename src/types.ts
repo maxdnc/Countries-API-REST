@@ -37,3 +37,8 @@ export type PaginationMenuProps = {
   totalPages: number;
   handlePageChange: (page: number) => void;
 };
+
+export type CountriesListProps = {
+  data?: Array<CountryResponseType>;
+  isLoading: boolean;
+};
