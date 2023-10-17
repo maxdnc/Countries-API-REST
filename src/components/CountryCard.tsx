@@ -28,7 +28,7 @@ export default function CountryCard({
 }: CountryCardType) {
   return (
     <>
-      <Card className="group relative max-w-xs overflow-hidden shadow-lg transition-transform hover:scale-[1.025]">
+      <Card className="group relative h-[405px] max-w-xs overflow-hidden shadow-lg transition-transform hover:scale-[1.025]">
         <CardHeader>
           <img
             src={flag}
