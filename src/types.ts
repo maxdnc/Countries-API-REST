@@ -24,9 +24,16 @@ export type FlagsType = {
   alt: string;
 };
 export type RegionType =
+  | "All"
   | "Asia"
   | "Oceania"
   | "Europe"
   | "Americas"
   | "Antarctic"
   | "Africa";
+
+export type PaginationMenuProps = {
+  currentPage: number;
+  totalPages: number;
+  handlePageChange: (page: number) => void;
+};
