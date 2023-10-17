@@ -1,3 +1,6 @@
+// react
+import { useState } from "react";
+// component
 import {
   Select,
   SelectContent,
@@ -7,11 +10,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+// type
+import type { RegionType } from "../types";
 
 export default function FilterForm() {
+  const [filter, setFilter] = useState<RegionType>("All");
+
+  const handleRegionChange = (value: RegionType) => {
+    setFilter(value);
+  };
+
+  console.log(filter);
+
   return (
     <div>
-      <Select>
+      <Select onValueChange={handleRegionChange}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Filter by Region" />
         </SelectTrigger>
