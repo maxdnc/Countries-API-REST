@@ -1,5 +1,3 @@
-// react
-import { useState } from "react";
 // component
 import {
   Select,
@@ -12,15 +10,16 @@ import {
 } from "@/components/ui/select";
 // type
 import type { RegionType } from "../types";
+// redux
+import { useAppDispatch } from "@/redux/hook";
+import { setfilteredParameter } from "@/redux/filteredParameterSlice";
 
 export default function FilterForm() {
-  const [filter, setFilter] = useState<RegionType>("All");
+  const dispatch = useAppDispatch();
 
   const handleRegionChange = (value: RegionType) => {
-    setFilter(value);
+    dispatch(setfilteredParameter(value));
   };
-
-  console.log(filter);
 
   return (
     <div>
@@ -33,7 +32,7 @@ export default function FilterForm() {
             <SelectLabel>Regions</SelectLabel>
             <SelectItem value="All">World</SelectItem>
             <SelectItem value="Africa">Africa</SelectItem>
-            <SelectItem value="America">America</SelectItem>
+            <SelectItem value="Americas">America</SelectItem>
             <SelectItem value="Asia">Asia</SelectItem>
             <SelectItem value="Europe">Europe</SelectItem>
             <SelectItem value="Oceania">Oceania</SelectItem>
