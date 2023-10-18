@@ -1,31 +1,39 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 // component
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
 // icon
-import { Search } from "lucide-react";
-// hook
-import { useAppDispatch } from "@/redux/hook";
-import { setfilteredParameter } from "@/redux/filteredParameterSlice";
+import { Search, X } from "lucide-react";
+// redux
+import { setFilteredParameter } from "@/redux/filteredParameterSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { setSearchForm } from "@/redux/searchFormSlice";
+import { setFilterForm } from "@/redux/filterFormSlice";
 
 export default function SearchForm() {
-  const [searchForm, setSearchForm] = useState<string>("");
+  const searchForm = useAppSelector((state) => state.searchForm);
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
   const dispatch = useAppDispatch();
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    dispatch(setfilteredParameter(searchForm));
+    dispatch(setFilteredParameter(searchForm));
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchForm(event.target.value);
-    if (event.target.value.trim() === "") {
-      setIsEmpty(true);
-    } else {
-      setIsEmpty(false);
-    }
+    dispatch(setSearchForm(event.target.value));
+  };
+
+  useEffect(() => {
+    const isFormEmpty = !searchForm || !searchForm.trim();
+    setIsEmpty(isFormEmpty);
+  }, [searchForm]);
+
+  const handleReset = () => {
+    dispatch(setSearchForm(""));
+    dispatch(setFilteredParameter("All"));
+    dispatch(setFilterForm("All"));
   };
 
   return (
@@ -33,13 +41,28 @@ export default function SearchForm() {
       className="flex w-full max-w-sm items-center space-x-2"
       onSubmit={handleSubmit}
     >
-      <Input
-        type="text"
-        placeholder="Search for a country..."
-        className="shadow-md"
-        value={searchForm}
-        onChange={handleChange}
-      />
+      <div className="relative w-full">
+        <Input
+          type="text"
+          placeholder="Search for a country..."
+          className="  shadow-md"
+          value={searchForm}
+          onChange={handleChange}
+        />
+        {!isEmpty && (
+          <Button
+            type="button"
+            variant="ghost"
+            className="absolute right-0 top-0 scale-75"
+            onClick={handleReset}
+          >
+            <span>
+              <X />
+            </span>
+            <span className="sr-only">erase text</span>
+          </Button>
+        )}
+      </div>
       <Button
         type="submit"
         variant="outline"
