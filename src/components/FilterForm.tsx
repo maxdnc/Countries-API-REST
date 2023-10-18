@@ -11,19 +11,25 @@ import {
 // type
 import type { RegionType } from "../types";
 // redux
-import { useAppDispatch } from "@/redux/hook";
-import { setfilteredParameter } from "@/redux/filteredParameterSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { setFilteredParameter } from "@/redux/filteredParameterSlice";
+import { setSearchForm } from "@/redux/searchFormSlice";
+import { setFilterForm } from "@/redux/filterFormSlice";
 
 export default function FilterForm() {
+  const filterForm = useAppSelector((state) => state.filterForm);
+
   const dispatch = useAppDispatch();
 
   const handleRegionChange = (value: RegionType) => {
-    dispatch(setfilteredParameter(value));
+    dispatch(setFilterForm(value));
+    dispatch(setFilteredParameter(value));
+    dispatch(setSearchForm(""));
   };
 
   return (
     <div>
-      <Select onValueChange={handleRegionChange}>
+      <Select onValueChange={handleRegionChange} value={filterForm}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Filter by Region" />
         </SelectTrigger>
