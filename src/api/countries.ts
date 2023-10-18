@@ -18,3 +18,14 @@ export const getCountriesByRegion = async (
 
   return regionCountries as CountryResponseType[];
 };
+
+export const getCountriesByName = async (
+  name: string,
+): Promise<CountryResponseType[]> => {
+  const response = await axios.get(
+    `https://restcountries.com/v3.1/name/${name}?fullText=true`,
+  );
+  const nameCountry = response.data;
+
+  return nameCountry as CountryResponseType[];
+};
