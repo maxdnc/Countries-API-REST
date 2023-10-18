@@ -1,19 +1,32 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllCountries, getCountriesByRegion } from "@/api/countries";
+import {
+  getAllCountries,
+  getCountriesByRegion,
+  getCountriesByName,
+} from "@/api/countries";
 
-export function useFilteredCountries(region: string) {
-  const queryKey = region === "All" ? ["countries"] : ["countries", region];
-
-  const { data: countries, isLoading } = useQuery({
-    queryKey,
+export function useFilteredCountries(filter: string) {
+  const { data, isLoading } = useQuery({
+    queryKey: ["filteredCountries", filter],
     queryFn: () => {
-      if (region === "All") {
+      if (filter === "All" || "" || undefined || null) {
         return getAllCountries();
+      } else if (
+        [
+          "Asia",
+          "Oceania",
+          "Europe",
+          "Americas",
+          "Antarctic",
+          "Africa",
+        ].includes(filter)
+      ) {
+        return getCountriesByRegion(filter);
       } else {
-        return getCountriesByRegion(region);
+        return getCountriesByName(filter);
       }
     },
   });
 
-  return { countries, isLoading };
+  return { data, isLoading };
 }
