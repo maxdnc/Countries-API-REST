@@ -5,8 +5,13 @@ import {
   getCountriesByName,
 } from "@/api/countries";
 
+export interface CountryError {
+  message: string;
+  code: number;
+}
+
 export function useFilteredCountries(filter: string) {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["filteredCountries", filter],
     queryFn: () => {
       if (filter === "All" || "" || undefined || null) {
@@ -26,7 +31,8 @@ export function useFilteredCountries(filter: string) {
         return getCountriesByName(filter);
       }
     },
+    retry: false,
   });
 
-  return { data, isLoading };
+  return { data, isLoading, isError };
 }

@@ -9,13 +9,13 @@ import { useAppSelector } from "@/redux/hook";
 
 export default function Home() {
   const filteredParameter = useAppSelector((state) => state.filteredParameter);
-  const { data, isLoading } = useFilteredCountries(filteredParameter);
+  const { data, isLoading, isError } = useFilteredCountries(filteredParameter);
 
   return (
     <div className="flex flex-col gap-10">
       <SearchForm />
       <FilterForm />
-      <CountriesList data={data} isLoading={isLoading} />
+      <CountriesList data={data} isLoading={isLoading} isError={isError} />
     </div>
   );
 }
