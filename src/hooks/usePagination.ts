@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CountryResponseType } from "../types";
 
 export const usePagination = (
@@ -6,6 +6,11 @@ export const usePagination = (
   page = 10,
 ) => {
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    data;
+    setCurrentPage(1);
+  }, [data]);
 
   const itemsPerPage = page;
 
