@@ -5,17 +5,27 @@ import { Input } from "./ui/input";
 
 // icon
 import { Search } from "lucide-react";
+// hook
+import { useAppDispatch } from "@/redux/hook";
+import { setfilteredParameter } from "@/redux/filteredParameterSlice";
 
 export default function SearchForm() {
   const [searchForm, setSearchForm] = useState<string>("");
+  const [isEmpty, setIsEmpty] = useState<boolean>(true);
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log(searchForm);
+    dispatch(setfilteredParameter(searchForm));
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchForm(event.target.value);
+    if (event.target.value.trim() === "") {
+      setIsEmpty(true);
+    } else {
+      setIsEmpty(false);
+    }
   };
 
   return (
@@ -30,7 +40,12 @@ export default function SearchForm() {
         value={searchForm}
         onChange={handleChange}
       />
-      <Button type="submit" variant="outline" className="shadow ">
+      <Button
+        type="submit"
+        variant="outline"
+        className="shadow"
+        disabled={isEmpty}
+      >
         <span>
           <Search size={19} />
         </span>
