@@ -6,12 +6,12 @@ const countryNameSlice = createSlice({
   name: "filteredParameter",
   initialState,
   reducers: {
-    setfilteredParameter: (state, action) => {
+    setFilteredParameter: (state, action) => {
       return (state = action.payload);
     },
   },
 });
 
-export const { setfilteredParameter } = countryNameSlice.actions;
+export const { setFilteredParameter } = countryNameSlice.actions;
 
 export default countryNameSlice.reducer;
