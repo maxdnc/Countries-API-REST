@@ -41,4 +41,5 @@ export type PaginationMenuProps = {
 export type CountriesListProps = {
   data?: Array<CountryResponseType>;
   isLoading: boolean;
+  isError: boolean;
 };
