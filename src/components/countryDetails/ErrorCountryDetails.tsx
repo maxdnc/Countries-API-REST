@@ -1,7 +1,7 @@
 // react router
 import { Link } from "react-router-dom";
 // component
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "../ui/button";
 //icon
 import { FlagOff, Home } from "lucide-react";
 // type

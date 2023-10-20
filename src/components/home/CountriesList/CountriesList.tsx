@@ -2,7 +2,7 @@
 import CountryCard from "./CountryCard";
 import SkeletonCard from "./SkeletonCard";
 import PaginationMenu from "./PaginationMenu";
-import ErrorCountry from "./ErrorCountry";
+import ErrorCountry from "../ErrorCountry";
 // type
 import type { CountryResponseType, CountriesListProps } from "@/types";
 // hook

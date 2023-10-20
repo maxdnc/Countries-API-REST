@@ -1,7 +1,7 @@
 // react router
 import { HashRouter, Route, Routes } from "react-router-dom";
 // component
-import MainLayout from "./layouts/MainLayout";
+import MainLayout from "./components/layouts/MainLayout";
 // style
 import { ThemeProvider } from "./components/theme-provider";
 // page

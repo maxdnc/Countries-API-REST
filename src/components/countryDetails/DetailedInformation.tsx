@@ -4,7 +4,7 @@ import { formatNumberWithCommas } from "@/helper/math";
 // type
 import { DetailedInformationType } from "@/types";
 // component
-import InfoItem from "./ui/info-item";
+import InfoItem from "../ui/info-item";
 import ListBorderCountries from "./ListBorderCountries";
 
 export default function DetailedInformation({

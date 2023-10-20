@@ -4,10 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import { useBordersCountries } from "@/hooks/useBordersCountries";
 import { useCountryDetails } from "@/hooks/useCountryDetails";
 // component
-import DetailedInformation from "@/components/DetailedInformation";
+import DetailedInformation from "@/components/countryDetails/DetailedInformation";
 import { buttonVariants } from "@/components/ui/button";
-import ErrorCountryDetails from "@/components/ErrorCountryDetails";
-import LoadingCountryDetails from "@/components/LoadingCountryDetails";
+import ErrorCountryDetails from "@/components/countryDetails/ErrorCountryDetails";
+import LoadingCountryDetails from "@/components/countryDetails/LoadingCountryDetails";
 // icon
 import { ArrowLeft } from "lucide-react";
 

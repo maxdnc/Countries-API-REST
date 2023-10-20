@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../../ui/card";
 //icon
 import { ArrowUpRight } from "lucide-react";
 // helper

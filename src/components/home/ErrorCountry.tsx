@@ -1,5 +1,5 @@
 // component
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 // icon
 import { FlagOff } from "lucide-react";

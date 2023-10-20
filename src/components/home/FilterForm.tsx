@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 // type
-import type { RegionType } from "../types";
+import type { RegionType } from "../../types";
 // redux
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { setFilteredParameter } from "@/redux/features/filteredParameterSlice";
