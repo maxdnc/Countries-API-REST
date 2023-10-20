@@ -12,9 +12,9 @@ import {
 import type { RegionType } from "../types";
 // redux
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { setFilteredParameter } from "@/redux/filteredParameterSlice";
-import { setSearchForm } from "@/redux/searchFormSlice";
-import { setFilterForm } from "@/redux/filterFormSlice";
+import { setFilteredParameter } from "@/redux/features/filteredParameterSlice";
+import { setSearchForm } from "@/redux/features/searchFormSlice";
+import { setFilterForm } from "@/redux/features/filterFormSlice";
 
 export default function FilterForm() {
   const filterForm = useAppSelector((state) => state.filterForm);

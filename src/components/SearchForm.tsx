@@ -6,10 +6,10 @@ import { Input } from "./ui/input";
 // icon
 import { Search, X } from "lucide-react";
 // redux
-import { setFilteredParameter } from "@/redux/filteredParameterSlice";
+import { setFilteredParameter } from "@/redux/features/filteredParameterSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { setSearchForm } from "@/redux/searchFormSlice";
-import { setFilterForm } from "@/redux/filterFormSlice";
+import { setSearchForm } from "@/redux/features/searchFormSlice";
+import { setFilterForm } from "@/redux/features/filterFormSlice";
 
 export default function SearchForm() {
   const searchForm = useAppSelector((state) => state.searchForm);

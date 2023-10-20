@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import filteredParameterReducer from "./filteredParameterSlice";
-import searchFormReducer from "./searchFormSlice";
-import filterFormReducer from "./filterFormSlice";
+import filteredParameterReducer from "./features/filteredParameterSlice";
+import searchFormReducer from "./features/searchFormSlice";
+import filterFormReducer from "./features/filterFormSlice";
 
 const store = configureStore({
   reducer: {
