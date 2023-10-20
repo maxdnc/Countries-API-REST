@@ -7,7 +7,8 @@ import { ThemeProvider } from "./components/theme-provider";
 // page
 import Home from "./pages/Home";
 import CountryDetails from "./pages/CountryDetails";
-import Error from "./pages/Error";
+import FavoriteCountries from "./pages/FavoriteCountries.tsx";
+import Error from "./pages/Error.tsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="/country/:name" element={<CountryDetails />} />
+            <Route path="/favorite" element={<FavoriteCountries />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
