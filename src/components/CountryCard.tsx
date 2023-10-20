@@ -41,7 +41,7 @@ export default function CountryCard({
 
         <CardContent className="py-4">
           <CardTitle className="py-4">
-            <Link to="/country">
+            <Link to={`/country/${name}`}>
               <span className="absolute inset-0"></span>
               <div className="flex items-center gap-4">
                 <span>{name}</span>
