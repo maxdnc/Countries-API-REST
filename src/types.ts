@@ -43,3 +43,47 @@ export type CountriesListProps = {
   isLoading: boolean;
   isError: boolean;
 };
+
+export type CountryDetailsType = {
+  flags: FlagsType;
+  name: NameType;
+  population: number;
+  region: RegionType;
+  subregion?: string;
+  borders?: string[];
+  capital?: string[];
+  tld: string[];
+  currencies?: CurrenciesType;
+  languages?: LanguagesType;
+};
+
+export type CurrenciesType = {
+  [key: string]: {
+    name: string;
+    symbol: string;
+  };
+};
+export type ContinentType =
+  | "Asia"
+  | "Oceania"
+  | "Europe"
+  | "North America"
+  | "Antarctica"
+  | "South America"
+  | "Africa";
+
+export type LanguagesType = {
+  [key: string]: string;
+};
+
+export type DetailedInformationType = {
+  country: CountryDetailsType | undefined;
+  borderCountries: CountryDetailsType[];
+};
+
+export type ListBorderCountriesType = {
+  borderCountries: CountryDetailsType[];
+};
+export type ErrorCountryDetailsType = {
+  name: string;
+};
