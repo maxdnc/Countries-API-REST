@@ -1,7 +1,7 @@
 // component
-import CountriesList from "@/components/CountriesList";
-import FilterForm from "@/components/FilterForm";
-import SearchForm from "@/components/SearchForm";
+import CountriesList from "@/components/home/CountriesList/CountriesList";
+import FilterForm from "@/components/home/FilterForm";
+import SearchForm from "@/components/home/SearchForm";
 // hook
 import { useFilteredCountries } from "../hooks/useFilteredCountries";
 // redux

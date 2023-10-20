@@ -5,11 +5,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../../ui/card";
 //icon
 import { ArrowUpRight } from "lucide-react";
 // helper
 import { formatNumberWithCommas } from "@/helper/math";
+import InfoItem from "@/components/ui/info-item";
 
 interface CountryCardType {
   name: string;
@@ -41,7 +42,7 @@ export default function CountryCard({
 
         <CardContent className="py-4">
           <CardTitle className="py-4">
-            <Link to="/country">
+            <Link to={`/country/${name}`}>
               <span className="absolute inset-0"></span>
               <div className="flex items-center gap-4">
                 <span>{name}</span>
@@ -52,18 +53,12 @@ export default function CountryCard({
             </Link>
           </CardTitle>
           <div className="flex flex-col gap-1 ">
-            <p>
-              Population:{" "}
-              <span className="tracking-wide text-primary/70">
-                {formatNumberWithCommas(population)}
-              </span>
-            </p>
-            <p>
-              Region: <span className="text-primary/70">{region}</span>
-            </p>
-            <p>
-              Capital: <span className="text-primary/70">{capital}</span>
-            </p>
+            <InfoItem
+              label="Population"
+              value={formatNumberWithCommas(population)}
+            />
+            <InfoItem label="Region" value={region} />
+            <InfoItem label="Capital" value={capital} />
           </div>
         </CardContent>
         <CardFooter className="py-5" />

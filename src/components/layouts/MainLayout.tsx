@@ -1,7 +1,7 @@
 // react router
 import { Outlet } from "react-router-dom";
 // component
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/layouts/NavBar";
 
 export default function MainLayout() {
   return (

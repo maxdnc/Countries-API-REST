@@ -1,9 +1,9 @@
 // icon
 import { ChevronLeft, ChevronRight } from "lucide-react";
 // component
-import { Button } from "./ui/button";
+import { Button } from "../../ui/button";
 // type
-import type { PaginationMenuProps } from "../types";
+import type { PaginationMenuProps } from "../../../types";
 
 export default function PaginationMenu({
   currentPage,

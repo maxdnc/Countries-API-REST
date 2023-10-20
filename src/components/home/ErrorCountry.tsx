@@ -1,13 +1,13 @@
 // component
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 // icon
 import { FlagOff } from "lucide-react";
 // redux
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { setFilteredParameter } from "@/redux/filteredParameterSlice";
-import { setSearchForm } from "@/redux/searchFormSlice";
-import { setFilterForm } from "@/redux/filterFormSlice";
+import { setFilteredParameter } from "@/redux/features/filteredParameterSlice";
+import { setSearchForm } from "@/redux/features/searchFormSlice";
+import { setFilterForm } from "@/redux/features/filterFormSlice";
 
 export default function ErrorCountry() {
   const filteredParameter = useAppSelector((state) => state.filteredParameter);
