@@ -5,11 +5,6 @@ import {
   getCountriesByName,
 } from "@/api/countries";
 
-export interface CountryError {
-  message: string;
-  code: number;
-}
-
 export function useFilteredCountries(filter: string) {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["filteredCountries", filter],
