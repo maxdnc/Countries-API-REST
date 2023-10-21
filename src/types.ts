@@ -87,3 +87,11 @@ export type ListBorderCountriesType = {
 export type ErrorCountryDetailsType = {
   name: string;
 };
+
+export type CountryCardType = {
+  name: string;
+  population: number;
+  region: string;
+  capital: string[];
+  flag: string;
+};
