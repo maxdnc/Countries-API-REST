@@ -11,14 +11,15 @@ import { ArrowUpRight } from "lucide-react";
 // helper
 import { formatNumberWithCommas } from "@/helper/math";
 import InfoItem from "@/components/ui/info-item";
-
-interface CountryCardType {
-  name: string;
-  population: number;
-  region: string;
-  capital: string[];
-  flag: string;
-}
+// type
+import type { CountryCardType } from "../../../types";
+import { Button } from "@/components/ui/button";
+// hook
+import { useToast } from "@/components/ui/use-toast";
+import { useCountryDetails } from "@/hooks/useCountryDetails";
+// redux
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { addFavorite } from "@/redux/features/favoriteCountriesSlice";
 
 export default function CountryCard({
   name,
@@ -27,9 +28,41 @@ export default function CountryCard({
   capital,
   flag,
 }: CountryCardType) {
+  const { toast } = useToast();
+  const { data: country } = useCountryDetails(name);
+  const dispatch = useAppDispatch();
+  const favoriteCountries = useAppSelector(
+    (state) => state.favorites.countries,
+  );
+
+  const handleClick = () => {
+    if (country) {
+      const countryData = country[0];
+      const isAlreadyInFavorite = favoriteCountries.some(
+        (favorite) => favorite.name.official === countryData.name.official,
+      );
+      if (!isAlreadyInFavorite) {
+        console.log(typeof country);
+        dispatch(addFavorite(countryData));
+
+        toast({
+          className: "bg-secondary",
+          description: `${name} added to favorites !`,
+        });
+      } else {
+        toast({
+          className: "bg-destructive",
+          description: `${name} is already in your favorites.`,
+        });
+      }
+    } else {
+      console.error("Country data is undefined. Cannot add to favorites.");
+    }
+  };
+
   return (
     <>
-      <Card className="group relative h-[405px] max-w-xs overflow-hidden shadow-lg transition-transform hover:scale-[1.025]">
+      <Card className="group relative h-[450px] max-w-xs overflow-hidden shadow-lg  ">
         <CardHeader>
           <img
             src={flag}
@@ -61,7 +94,15 @@ export default function CountryCard({
             <InfoItem label="Capital" value={capital} />
           </div>
         </CardContent>
-        <CardFooter className="py-5" />
+        <CardFooter className="px-5 py-4">
+          <Button
+            variant="secondary"
+            className="z-50 active:bg-primary-foreground"
+            onClick={handleClick}
+          >
+            Favorite
+          </Button>
+        </CardFooter>
       </Card>
     </>
   );
