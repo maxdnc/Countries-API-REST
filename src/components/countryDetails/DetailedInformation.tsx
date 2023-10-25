@@ -6,6 +6,7 @@ import { DetailedInformationType } from "@/types";
 // component
 import InfoItem from "../ui/info-item";
 import ListBorderCountries from "./ListBorderCountries";
+import FavoriteButton from "../ui/FavoriteButton";
 
 export default function DetailedInformation({
   country,
@@ -19,7 +20,10 @@ export default function DetailedInformation({
         alt={`Flag from ${country?.name.common} `}
       />
 
-      <h2 className="my-10 text-3xl">{country?.name.official}</h2>
+      <div className="flex items-center gap-4">
+        <h2 className="my-10 text-3xl">{country?.name.official}</h2>
+        <FavoriteButton countryName={country?.name.official} />
+      </div>
       <div className="flex flex-col gap-10">
         <div className="flex flex-col gap-2">
           <InfoItem
