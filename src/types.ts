@@ -96,3 +96,8 @@ export type CountryCardType = {
   capital: string[];
   flag: string;
 };
+
+export type FavoriteButtonType = {
+  countryName: string | undefined;
+  className?: string;
+};
