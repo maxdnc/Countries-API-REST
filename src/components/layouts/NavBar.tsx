@@ -23,6 +23,9 @@ export default function NavBar() {
           }
         >
           <Heart size={18} strokeWidth={2.5} color="#F337E6" />
+          <span className="sr-only md:not-sr-only md:ml-4 md:inline-block">
+            Favorite
+          </span>
         </NavLink>
 
         <ModeToggle />
