@@ -17,9 +17,9 @@ const favoritesSlice = createSlice({
       state.countries.push(action.payload);
     },
 
-    removeFavorite: (state, action: PayloadAction<CountryDetailsType>) => {
+    removeFavorite: (state, action: PayloadAction<string>) => {
       state.countries = state.countries.filter(
-        (country) => country !== action.payload,
+        (country) => country.name.official !== action.payload,
       );
     },
   },
