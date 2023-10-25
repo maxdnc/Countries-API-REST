@@ -38,14 +38,14 @@ export default function FavoriteButton({
         dispatch(addFavorite(countryData));
 
         toast({
-          className: "bg-secondary",
-          description: `${name} added to favorites countries list !`,
+          className: "bg-secondary font-bold",
+          description: `${countryData.name.official} Added to favorites countries list !`,
         });
       } else {
         dispatch(removeFavorite(countryData.name.official));
         toast({
-          className: "bg-destructive",
-          description: `${name} deleted from your favorites countries list`,
+          className: "bg-destructive font-bold",
+          description: `${countryData.name.official} Deleted from your favorites countries list !`,
         });
       }
     } else {
@@ -55,7 +55,7 @@ export default function FavoriteButton({
   return (
     <Button
       variant="secondary"
-      className={`${className} z-50 transition  hover:bg-fuchsia-600 active:bg-primary-foreground  ${
+      className={`${className} z-50 transition hover:bg-fuchsia-600 active:bg-primary-foreground  ${
         isInFavorite ? "bg-fuchsia-500 hover:bg-fuchsia-600" : ""
       }`}
       onClick={handleClick}
