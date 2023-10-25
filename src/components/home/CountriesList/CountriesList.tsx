@@ -1,8 +1,8 @@
 // component
 import CountryCard from "./CountryCard";
-import SkeletonCard from "./SkeletonCard";
 import PaginationMenu from "./PaginationMenu";
 import ErrorCountry from "../ErrorCountry";
+import SkeletonList from "./SkeletonList";
 // type
 import type { CountryResponseType, CountriesListProps } from "@/types";
 // hook
@@ -13,7 +13,7 @@ export default function CountriesList({
   isLoading,
   isError,
 }: CountriesListProps) {
-  const ItemsLimiteByPage = 12;
+  const ItemsLimiteByPage = 10;
   const {
     currentPage,
     dataCurrentPage: countriesCurrentPage,
@@ -26,19 +26,7 @@ export default function CountriesList({
   }
 
   if (isLoading) {
-    return (
-      <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-12 px-4 py-4 ">
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-        <SkeletonCard />
-      </div>
-    );
+    return <SkeletonList />;
   }
 
   return (
