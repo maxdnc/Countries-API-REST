@@ -1,20 +1,25 @@
-import { useCountryDetails } from "@/hooks/useCountryDetails";
+// component
 import { Button } from "./button";
+// hook
+import { useCountryDetails } from "@/hooks/useCountryDetails";
 import { useToast } from "./use-toast";
+// redux
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import {
   addFavorite,
   removeFavorite,
 } from "@/redux/features/favoriteCountriesSlice";
+// icon
 import { Heart } from "lucide-react";
+// type
 import type { FavoriteButtonType } from "../../types";
 
 export default function FavoriteButton({
   countryName,
   className,
 }: FavoriteButtonType) {
-  const { toast } = useToast();
   const { data: country } = useCountryDetails(countryName);
+  const { toast } = useToast();
   const dispatch = useAppDispatch();
   const favoriteCountries = useAppSelector(
     (state) => state.favorites.countries,
