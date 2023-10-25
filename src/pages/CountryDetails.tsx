@@ -1,11 +1,11 @@
 // react router
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // hooks
 import { useBordersCountries } from "@/hooks/useBordersCountries";
 import { useCountryDetails } from "@/hooks/useCountryDetails";
 // component
 import DetailedInformation from "@/components/countryDetails/DetailedInformation";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import ErrorCountryDetails from "@/components/countryDetails/ErrorCountryDetails";
 import LoadingCountryDetails from "@/components/countryDetails/LoadingCountryDetails";
 // icon
@@ -16,6 +16,7 @@ export default function CountryDetails() {
   const { data, isLoading, isError } = useCountryDetails(name);
   const country = data?.[0];
   const { borderCountries } = useBordersCountries(country?.borders);
+  const navigate = useNavigate();
 
   if (isError) {
     return <ErrorCountryDetails name={name} />;
@@ -27,15 +28,14 @@ export default function CountryDetails() {
 
   return (
     <div>
-      <Link
-        className={`mb-12 flex-initial gap-3 ${buttonVariants({
-          variant: "secondary",
-        })}`}
-        to={"/"}
+      <Button
+        variant="secondary"
+        className="mb-12 flex-initial gap-3"
+        onClick={() => navigate(-1)}
       >
         <ArrowLeft />
         <span>Back</span>
-      </Link>
+      </Button>
 
       <DetailedInformation
         country={country}
