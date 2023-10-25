@@ -55,6 +55,7 @@ export type CountryDetailsType = {
   tld: string[];
   currencies?: CurrenciesType;
   languages?: LanguagesType;
+  flag: string;
 };
 
 export type CurrenciesType = {
