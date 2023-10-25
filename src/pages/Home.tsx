@@ -13,8 +13,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-10">
-      <SearchForm />
-      <FilterForm />
+      <div className="flex flex-col justify-between gap-10 px-2 md:flex-row">
+        <SearchForm />
+        <FilterForm />
+      </div>
       <CountriesList data={data} isLoading={isLoading} isError={isError} />
     </div>
   );

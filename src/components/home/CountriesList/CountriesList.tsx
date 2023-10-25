@@ -13,7 +13,7 @@ export default function CountriesList({
   isLoading,
   isError,
 }: CountriesListProps) {
-  const ItemsLimiteByPage = 10;
+  const ItemsLimiteByPage = 9;
   const {
     currentPage,
     dataCurrentPage: countriesCurrentPage,
