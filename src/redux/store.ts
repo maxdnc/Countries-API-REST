@@ -3,14 +3,27 @@ import filteredParameterReducer from "./features/filteredParameterSlice";
 import searchFormReducer from "./features/searchFormSlice";
 import filterFormReducer from "./features/filterFormSlice";
 import favoritesReducer from "./features/favoriteCountriesSlice";
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
+import { combineReducers } from "@reduxjs/toolkit";
+
+const persistConfig = {
+  key: "root",
+  version: 1,
+  storage,
+};
+
+const reducer = combineReducers({
+  filteredParameter: filteredParameterReducer,
+  searchForm: searchFormReducer,
+  filterForm: filterFormReducer,
+  favorites: favoritesReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 const store = configureStore({
-  reducer: {
-    filteredParameter: filteredParameterReducer,
-    searchForm: searchFormReducer,
-    filterForm: filterFormReducer,
-    favorites: favoritesReducer,
-  },
+  reducer: persistedReducer,
 });
 
 export default store;
