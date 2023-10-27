@@ -1,4 +1,8 @@
+// react router
 import { Link } from "react-router-dom";
+// component
+import InfoItem from "@/components/ui/info-item";
+import FavoriteButton from "@/components/ui/FavoriteButton";
 import {
   Card,
   CardContent,
@@ -10,15 +14,8 @@ import {
 import { ArrowUpRight } from "lucide-react";
 // helper
 import { formatNumberWithCommas } from "@/helper/math";
-import InfoItem from "@/components/ui/info-item";
-
-interface CountryCardType {
-  name: string;
-  population: number;
-  region: string;
-  capital: string[];
-  flag: string;
-}
+// type
+import type { CountryCardType } from "../../../types";
 
 export default function CountryCard({
   name,
@@ -29,7 +26,7 @@ export default function CountryCard({
 }: CountryCardType) {
   return (
     <>
-      <Card className="group relative h-[405px] max-w-xs overflow-hidden shadow-lg transition-transform hover:scale-[1.025]">
+      <Card className="group relative h-[450px] max-w-xs overflow-hidden shadow-lg  ">
         <CardHeader>
           <img
             src={flag}
@@ -61,7 +58,11 @@ export default function CountryCard({
             <InfoItem label="Capital" value={capital} />
           </div>
         </CardContent>
-        <CardFooter className="py-5" />
+        <CardFooter className="px-5 py-4"></CardFooter>
+        <FavoriteButton
+          countryName={name}
+          className={"absolute bottom-4 right-4"}
+        />
       </Card>
     </>
   );

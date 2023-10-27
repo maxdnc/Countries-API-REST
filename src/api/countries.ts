@@ -31,7 +31,7 @@ export const getCountriesByName = async (
 };
 
 export const getCountryByName = async (
-  name: string,
+  name: string | undefined,
 ): Promise<CountryDetailsType[]> => {
   const response = await axios.get(
     `https://restcountries.com/v3.1/name/${name}?fullText=true`,

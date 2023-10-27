@@ -55,6 +55,7 @@ export type CountryDetailsType = {
   tld: string[];
   currencies?: CurrenciesType;
   languages?: LanguagesType;
+  flag: string;
 };
 
 export type CurrenciesType = {
@@ -86,4 +87,17 @@ export type ListBorderCountriesType = {
 };
 export type ErrorCountryDetailsType = {
   name: string;
+};
+
+export type CountryCardType = {
+  name: string;
+  population: number;
+  region: string;
+  capital: string[];
+  flag: string;
+};
+
+export type FavoriteButtonType = {
+  countryName: string | undefined;
+  className?: string;
 };
