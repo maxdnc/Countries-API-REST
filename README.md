@@ -5,7 +5,7 @@ Filter, search, and bookmark favorites for later exploration. Dive deeper into a
 
 ## Demo
 
-🌱 > [Countries API REST live demo](https://coutries-api-rest.vercel.app)
+🌱 > [Countries API REST live demo](https://countries-api-restful.vercel.app/)
 
 ## Preview
 
