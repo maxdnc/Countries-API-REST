@@ -14,7 +14,7 @@ export default function NavBar() {
       gap-4"
       >
         <Link to="/" className="font-bold text-primary">
-          Where is the world ?
+          Where in the world ?
         </Link>
         <div className="flex gap-4">
           <NavLink
