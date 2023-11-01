@@ -26,6 +26,7 @@ Filter, search, and bookmark favorites for later exploration. Dive deeper into a
 - Vite
 - Vercel
 - Vitest
+- Testing Library
 
 ## Authors
 
