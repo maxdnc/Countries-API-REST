@@ -42,14 +42,16 @@ export default function DetailedInformation({
             <InfoItem label="Capital" value={country?.capital?.[0]} />
           </div>
           <div className="flex flex-col gap-2">
-            <InfoItem label="Top Level Domain" value={country?.tld[0]} />
+            <InfoItem label="Top Level Domain" value={country?.tld?.[0]} />
             <InfoItem
               label="Currencies"
               value={getCurrencies(country?.currencies)}
             />
             <InfoItem
               label="Languages"
-              value={Object.values(country?.languages || { lang: "None" })}
+              value={Object.values(country?.languages || { lang: "None" }).join(
+                " ",
+              )}
             />
           </div>
         </div>
