@@ -1,5 +1,6 @@
 /// <reference types="vitest"/>
 /// <reference types="vite/client"/>
+/// <reference types="@testing-library/jest-dom" />
 
 import path from "path";
 import react from "@vitejs/plugin-react";
